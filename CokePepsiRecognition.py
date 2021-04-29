@@ -1,5 +1,6 @@
 #main program will be here
 import cv2
+from pathlib import Path
 
 def colorProfile(n):
     if n == 0:
@@ -14,8 +15,9 @@ def colorProfile(n):
         return (name, hsv_lower, hsv_upper)
 
 
-
-imagePath = r"C:\STUDY\_MCIS-AUT\_Sem1\Video-Audio-Processing\basicProject-detention of coke-pepsi\image2.jpg"
+data_folder = Path("source_data/images/")
+file_to_open = data_folder / "image2.jpg"
+imagePath = file_to_open.__str__()
 frame = cv2.imread(imagePath)
 
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
